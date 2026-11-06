@@ -4,7 +4,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
-const API = "${process.env.NEXT_PUBLIC_API_URL}/api";
+const API = `${process.env.NEXT_PUBLIC_API_URL}/api`;
 
 interface Product {
   id: string;

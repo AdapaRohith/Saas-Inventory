@@ -1,6 +1,7 @@
 
 "use client";
 
+import { Suspense } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 
@@ -12,12 +13,44 @@ const navigation = [
   { name: "Settings", href: "/dashboard/settings" },
 ];
 
+function NavLinks({ pathname }: { pathname?: string }) {
+  return (
+    <nav className="flex flex-wrap items-center gap-2">
+      {navigation.map((item) => {
+        const active =
+          pathname === item.href ||
+          (item.href !== "/dashboard" &&
+            pathname?.startsWith(item.href + "/"));
+
+        return (
+          <Link
+            key={item.href}
+            href={item.href}
+            className={`rounded-lg px-3 py-2 text-sm font-medium transition ${
+              active
+                ? "border border-black bg-white text-black"
+                : "text-black hover:bg-black hover:text-white"
+            }`}
+          >
+            {item.name}
+          </Link>
+        );
+      })}
+    </nav>
+  );
+}
+
+function ActiveNavLinks() {
+  const pathname = usePathname();
+
+  return <NavLinks pathname={pathname} />;
+}
+
 export default function DashboardLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const pathname = usePathname();
   const router = useRouter();
 
   const handleLogout = () => {
@@ -33,28 +66,9 @@ export default function DashboardLayout({
             Stock<span className="text-black">Flow</span>
           </Link>
 
-          <nav className="flex flex-wrap items-center gap-2">
-            {navigation.map((item) => {
-              const active =
-                pathname === item.href ||
-                (item.href !== "/dashboard" &&
-                  pathname.startsWith(item.href + "/"));
-
-              return (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className={`rounded-lg px-3 py-2 text-sm font-medium transition ${
-                    active
-                      ? "border border-black bg-white text-black"
-                      : "text-black hover:bg-black hover:text-white"
-                  }`}
-                >
-                  {item.name}
-                </Link>
-              );
-            })}
-          </nav>
+          <Suspense fallback={<NavLinks />}>
+            <ActiveNavLinks />
+          </Suspense>
 
           <button
             onClick={handleLogout}
@@ -65,7 +79,7 @@ export default function DashboardLayout({
         </div>
       </header>
 
-      {children}
+      <Suspense>{children}</Suspense>
     </div>
   );
 }
