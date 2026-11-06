@@ -47,7 +47,7 @@ export default function Dashboard() {
 
     try {
       const response = await fetch(
-        "http://localhost:5000/api/dashboard",
+        "${process.env.NEXT_PUBLIC_API_URL}/api/dashboard",
         {
           headers: {
             Authorization: `Bearer ${token}`,

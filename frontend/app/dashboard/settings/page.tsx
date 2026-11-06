@@ -16,7 +16,7 @@ export default function SettingsPage() {
       return;
     }
 
-    fetch("http://localhost:5000/api/settings", {
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/settings`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -44,7 +44,7 @@ export default function SettingsPage() {
     setMessage("");
 
     try {
-      const res = await fetch("http://localhost:5000/api/settings", {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/settings`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
