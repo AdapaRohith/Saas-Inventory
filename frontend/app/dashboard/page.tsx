@@ -98,40 +98,7 @@ export default function Dashboard() {
         );
 
   return (
-    <div className="flex min-h-screen bg-slate-950 text-white">
-
-      {/* Sidebar */}
-      <aside className="w-64 shrink-0 border-r border-slate-800 p-6">
-        <h1 className="text-2xl font-bold">
-          Stock<span className="text-blue-500">Flow</span>
-        </h1>
-
-        <nav className="mt-10 space-y-2">
-          {["Overview", "Products", "Settings"].map((item) => (
-            <button
-              key={item}
-              onClick={() => {
-                setActivePage(item);
-
-                if (item === "Products") {
-                  router.push("/dashboard/products/list");
-                }
-
-                if (item === "Settings") {
-                  router.push("/dashboard/settings");
-                }
-              }}
-              className={`w-full rounded-lg px-4 py-3 text-left transition ${
-                activePage === item
-                  ? "bg-blue-600 text-white"
-                  : "text-slate-400 hover:bg-gray-800"
-              }`}
-            >
-              {item}
-            </button>
-          ))}
-        </nav>
-      </aside>
+    <div className="min-h-screen bg-slate-950 text-white">
 
       {/* Main Content */}
       <main className="min-w-0 flex-1 p-8">
@@ -303,6 +270,19 @@ export default function Dashboard() {
               className="rounded-lg border border-slate-700 px-5 py-3 font-semibold transition hover:bg-gray-700"
             >
               View Products
+            </button>
+
+<button
+  onClick={() => router.push("/dashboard/inventory")}
+  className="rounded-lg border border-slate-700 px-5 py-3 font-semibold transition hover:bg-gray-700"
+>
+  Manage Inventory
+</button>
+            <button
+             onClick={() => router.push("/dashboard/inventory")}
+             className="w-full text-left px-4 py-3 rounded-lg text-gray-300 hover:bg-slate-800 hover:text-white transition"
+          >
+             Inventory Management
             </button>
 
             <button

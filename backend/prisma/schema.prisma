@@ -8,15 +8,22 @@ datasource db {
   provider = "postgresql"
 }
 
+enum StockChangeType {
+  STOCK_IN
+  STOCK_OUT
+  ADJUSTMENT
+}
+
 model Organization {
   id        String   @id @default(uuid())
   name      String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  user     User?
-  products Product[]
-  settings Settings?
+  user                User?
+  products            Product[]
+  settings            Settings?
+  inventoryActivities InventoryActivity[]
 }
 
 model User {
@@ -43,7 +50,8 @@ model Product {
   createdAt         DateTime @default(now())
   updatedAt         DateTime @updatedAt
 
-  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  organization        Organization         @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  inventoryActivities InventoryActivity[]
 
   @@unique([organizationId, sku])
   @@index([organizationId])
@@ -57,4 +65,24 @@ model Settings {
   updatedAt                DateTime @updatedAt
 
   organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+}
+
+model InventoryActivity {
+  id               String          @id @default(uuid())
+  organizationId   String
+  productId        String?
+  productName      String
+  sku              String
+  changeType       StockChangeType
+  previousQuantity Int
+  newQuantity      Int
+  quantityChange   Int
+  note             String?
+  createdAt        DateTime        @default(now())
+
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  product      Product?     @relation(fields: [productId], references: [id], onDelete: SetNull)
+
+  @@index([organizationId, createdAt])
+  @@index([productId])
 }

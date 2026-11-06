@@ -8,6 +8,8 @@ import { authenticateToken } from "./middleware/auth.middleware.js";
 import productRoutes from "./products.routes.js";
 import dashboardRoutes from "./dashboard.routes.js";
 import settingsRoutes from "./settings.routes.js";
+import inventoryRoutes from "./inventory.routes.js";
+
 
 const app = express();
 
@@ -19,6 +21,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/products", productRoutes);
 app.use("/api/dashboard", dashboardRoutes);
 app.use("/api/settings", settingsRoutes);
+app.use("/api/inventory", inventoryRoutes);
 
 app.get("/", (req, res) => {
   res.json({ message: "StockFlow API is running" });
