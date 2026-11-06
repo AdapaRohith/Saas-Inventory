@@ -151,23 +151,23 @@ export default function EditProductPage() {
 
   if (loading) {
     return (
-      <main className="min-h-screen bg-slate-950 p-8 text-white">
+      <main className="min-h-screen bg-white p-8 text-black">
         Loading product...
       </main>
     );
   }
 
   return (
-    <main className="min-h-screen bg-slate-950 p-6 text-white sm:p-8">
+    <main className="min-h-screen bg-white p-6 text-black sm:p-8">
       <div className="mx-auto max-w-2xl">
         <h1 className="text-3xl font-bold">Edit Product</h1>
-        <p className="mt-2 text-slate-400">
+        <p className="mt-2 text-black">
           Update your inventory product details.
         </p>
 
         <form
           onSubmit={handleSubmit}
-          className="mt-8 space-y-5 rounded-xl border border-slate-800 bg-gray-800 p-6"
+          className="mt-8 space-y-5 rounded-xl border border-slate-800 bg-white p-6"
         >
           {[
             { label: "Product Name", name: "name", type: "text" },
@@ -182,7 +182,7 @@ export default function EditProductPage() {
             },
           ].map((field) => (
             <div key={field.name}>
-              <label className="mb-2 block text-sm text-slate-300">
+              <label className="mb-2 block text-sm text-black">
                 {field.label}
               </label>
               <input
@@ -202,13 +202,13 @@ export default function EditProductPage() {
                     ? "0.01"
                     : "1"
                 }
-                className="w-full rounded-lg border border-slate-700 bg-slate-950 px-4 py-3 text-white outline-none focus:border-blue-500"
+                className="w-full rounded-lg border border-slate-700 bg-white px-4 py-3 text-black outline-none focus:border-blue-500"
               />
             </div>
           ))}
 
           <div>
-            <label className="mb-2 block text-sm text-slate-300">
+            <label className="mb-2 block text-sm text-black">
               Description
             </label>
             <textarea
@@ -216,17 +216,17 @@ export default function EditProductPage() {
               value={form.description}
               onChange={handleChange}
               rows={3}
-              className="w-full rounded-lg border border-slate-700 bg-slate-950 px-4 py-3 text-white outline-none focus:border-blue-500"
+              className="w-full rounded-lg border border-slate-700 bg-white px-4 py-3 text-black outline-none focus:border-blue-500"
             />
           </div>
 
-          {error && <p className="text-sm text-red-400">{error}</p>}
+          {error && <p className="text-sm text-black">{error}</p>}
 
           <div className="flex gap-3">
             <button
               type="submit"
               disabled={saving}
-              className="rounded-lg bg-blue-600 px-6 py-3 font-semibold hover:bg-blue-500 disabled:opacity-50"
+              className="rounded-lg border border-black bg-white px-6 py-3 font-semibold enabled:hover:bg-black enabled:hover:text-white disabled:opacity-50"
             >
               {saving ? "Saving..." : "Update Product"}
             </button>
@@ -234,7 +234,7 @@ export default function EditProductPage() {
             <button
               type="button"
               onClick={() => router.push("/dashboard/products/list")}
-              className="rounded-lg bg-slate-700 px-6 py-3 font-semibold hover:bg-slate-600"
+              className="rounded-lg border border-black bg-white px-6 py-3 font-semibold hover:bg-black hover:text-white"
             >
               Cancel
             </button>

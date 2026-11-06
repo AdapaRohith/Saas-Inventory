@@ -18,7 +18,6 @@ const productSchema = z.object({
   lowStockThreshold: z.number().int().min(0).nullable().optional(),
 });
 
-// CREATE PRODUCT
 router.post("/", async (req, res) => {
   const result = productSchema.safeParse(req.body);
 
@@ -44,7 +43,6 @@ router.post("/", async (req, res) => {
   }
 });
 
-// GET ALL PRODUCTS
 router.get("/", async (req, res) => {
   try {
     const products = await prisma.product.findMany({
@@ -58,7 +56,6 @@ router.get("/", async (req, res) => {
   }
 });
 
-// GET SINGLE PRODUCT
 router.get("/:id", async (req, res) => {
   try {
     const product = await prisma.product.findFirst({
@@ -78,7 +75,6 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-// UPDATE PRODUCT
 router.put("/:id", async (req, res) => {
   const result = productSchema.partial().safeParse(req.body);
 
@@ -113,7 +109,6 @@ router.put("/:id", async (req, res) => {
   }
 });
 
-// DELETE PRODUCT
 router.delete("/:id", async (req, res) => {
   try {
     const deleted = await prisma.product.deleteMany({

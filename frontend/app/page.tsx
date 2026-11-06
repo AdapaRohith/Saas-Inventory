@@ -58,42 +58,42 @@ export default function Home() {
   }
 
   return (
-    <main className="min-h-screen flex flex-col lg:flex-row items-center justify-between bg-slate-1000 px-6 py-12 lg:px-24">
+    <main className="min-h-screen flex flex-col lg:flex-row items-center justify-between bg-white px-6 py-12 lg:px-24">
 
       <div className="w-full lg:w-1/2 mb-12 lg:mb-0">
-        <h1 className="text-6xl lg:text-8xl font-extrabold tracking-tight text-white">
-          Stock<span className="text-blue-500">Flow</span>
+        <h1 className="text-6xl lg:text-8xl font-extrabold tracking-tight text-black">
+          Stock<span className="text-black">Flow</span>
         </h1>
 
-        <p className="mt-6 max-w-lg text-lg lg:text-2xl text-slate-400 leading-relaxed">
+        <p className="mt-6 max-w-lg text-lg lg:text-2xl text-black leading-relaxed">
           Inventory management, made simple.
           Take control of your stock, track products,
           and manage your business efficiently.
         </p>
 
-        <div className="mt-10 flex gap-8 text-sm text-slate-500">
+        <div className="mt-10 flex gap-8 text-sm text-black">
           <div>
-            <p className="text-2xl font-bold text-blue-400">01</p>
+            <p className="text-2xl font-bold text-black">01</p>
             <p>Track inventory</p>
           </div>
           <div>
-            <p className="text-2xl font-bold text-blue-400">02</p>
+            <p className="text-2xl font-bold text-black">02</p>
             <p>Manage products</p>
           </div>
           <div>
-            <p className="text-2xl font-bold text-blue-400">03</p>
+            <p className="text-2xl font-bold text-black">03</p>
             <p>Monitor stock</p>
           </div>
         </div>
       </div>
 
-      <div className="w-full max-w-md shrink-0 rounded-2xl border border-slate-800 bg-gray-800 p-8 shadow-2xl">
+      <div className="w-full max-w-md shrink-0 rounded-2xl border border-slate-800 bg-white p-8 shadow-2xl">
 
-        <h2 className="text-2xl font-semibold text-white">
+        <h2 className="text-2xl font-semibold text-black">
           {isSignup ? "Create your account" : "Welcome back"}
         </h2>
 
-        <p className="mt-2 text-sm text-slate-400">
+        <p className="mt-2 text-sm text-black">
           {isSignup
             ? "Get started with StockFlow."
             : "Sign in to manage your inventory."}
@@ -104,7 +104,7 @@ export default function Home() {
           {isSignup && (
             <>
               <div>
-                <label className="mb-2 block text-sm font-medium text-slate-300">
+                <label className="mb-2 block text-sm font-medium text-black">
                   Your Name
                 </label>
                 <input
@@ -113,12 +113,12 @@ export default function Home() {
                   onChange={(e) => setName(e.target.value)}
                   type="text"
                   placeholder="Your name"
-                  className="w-full rounded-lg border border-slate-700 bg-slate-900 px-4 py-3 text-white outline-none focus:border-blue-500"
+                  className="w-full rounded-lg border border-slate-700 bg-white px-4 py-3 text-black outline-none focus:border-blue-500"
                 />
               </div>
 
               <div>
-                <label className="mb-2 block text-sm font-medium text-slate-300">
+                <label className="mb-2 block text-sm font-medium text-black">
                   Organization Name
                 </label>
                 <input
@@ -127,14 +127,14 @@ export default function Home() {
                   onChange={(e) => setOrganizationName(e.target.value)}
                   type="text"
                   placeholder="Your company"
-                  className="w-full rounded-lg border border-slate-700 bg-slate-900 px-4 py-3 text-white outline-none focus:border-blue-500"
+                  className="w-full rounded-lg border border-slate-700 bg-white px-4 py-3 text-black outline-none focus:border-blue-500"
                 />
               </div>
             </>
           )}
 
           <div>
-            <label className="mb-2 block text-sm font-medium text-slate-300">
+            <label className="mb-2 block text-sm font-medium text-black">
               Email Address
             </label>
             <input
@@ -143,12 +143,12 @@ export default function Home() {
               onChange={(e) => setEmail(e.target.value)}
               type="email"
               placeholder="you@example.com"
-              className="w-full rounded-lg border border-slate-700 bg-slate-900 px-4 py-3 text-white outline-none focus:border-blue-500"
+              className="w-full rounded-lg border border-slate-700 bg-white px-4 py-3 text-black outline-none focus:border-blue-500"
             />
           </div>
 
           <div>
-            <label className="mb-2 block text-sm font-medium text-slate-300">
+            <label className="mb-2 block text-sm font-medium text-black">
               Password
             </label>
             <input
@@ -157,18 +157,18 @@ export default function Home() {
               onChange={(e) => setPassword(e.target.value)}
               type="password"
               placeholder="Enter your password"
-              className="w-full rounded-lg border border-slate-700 bg-slate-900 px-4 py-3 text-white outline-none focus:border-blue-500"
+              className="w-full rounded-lg border border-slate-700 bg-white px-4 py-3 text-black outline-none focus:border-blue-500"
             />
           </div>
 
           {error && (
-            <p className="text-sm text-red-400">{error}</p>
+            <p className="text-sm text-black">{error}</p>
           )}
 
           <button
             disabled={loading}
             type="submit"
-            className="w-full rounded-lg bg-blue-600 py-3 font-semibold text-white transition hover:bg-blue-500 disabled:opacity-50"
+            className="w-full rounded-lg border border-black bg-white py-3 font-semibold text-black transition enabled:hover:bg-black enabled:hover:text-white disabled:opacity-50"
           >
             {loading
               ? "Please wait..."
@@ -178,7 +178,7 @@ export default function Home() {
           </button>
         </form>
 
-        <p className="mt-6 text-center text-sm text-slate-400">
+        <p className="mt-6 text-center text-sm text-black">
           {isSignup
             ? "Already have an account?"
             : "New to StockFlow?"}{" "}
@@ -189,7 +189,7 @@ export default function Home() {
               setIsSignup(!isSignup);
               setError("");
             }}
-            className="font-semibold text-blue-400 hover:text-blue-300"
+            className="font-semibold text-black hover:bg-black hover:text-white"
           >
             {isSignup ? "Sign In" : "Create Account"}
           </button>

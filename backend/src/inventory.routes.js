@@ -7,7 +7,6 @@ const router = express.Router();
 
 router.use(authenticateToken);
 
-// Validate quantity and optional note
 function validateInput(body, requireQuantity = true) {
   const { quantity, note } = body;
 
@@ -29,7 +28,6 @@ function validateInput(body, requireQuantity = true) {
   return null;
 }
 
-// Shared stock update function
 async function updateStock(req, res, changeType) {
   try {
     const { productId } = req.params;
@@ -116,17 +114,14 @@ async function updateStock(req, res, changeType) {
   }
 }
 
-// STOCK IN
 router.post("/stock-in/:productId", (req, res) => {
   return updateStock(req, res, "STOCK_IN");
 });
 
-// STOCK OUT
 router.post("/stock-out/:productId", (req, res) => {
   return updateStock(req, res, "STOCK_OUT");
 });
 
-// ADJUST STOCK TO AN EXACT QUANTITY
 router.post("/adjust/:productId", async (req, res) => {
   try {
     const { productId } = req.params;
@@ -208,7 +203,6 @@ router.post("/adjust/:productId", async (req, res) => {
   }
 });
 
-// GET INVENTORY ACTIVITY HISTORY
 router.get("/activities", async (req, res) => {
   try {
     const page = Number(req.query.page) || 1;

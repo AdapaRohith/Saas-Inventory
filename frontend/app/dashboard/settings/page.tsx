@@ -72,18 +72,18 @@ export default function SettingsPage() {
   }
 
   return (
-    <div className="min-h-screen bg-slate-950 p-8 text-white">
+    <div className="min-h-screen bg-white p-8 text-black">
       <div className="mx-auto max-w-3xl">
         <h1 className="text-3xl font-bold">Settings</h1>
-        <p className="mt-2 text-slate-400">
+        <p className="mt-2 text-black">
           Manage your StockFlow preferences.
         </p>
 
-        <div className="mt-8 rounded-xl border border-slate-800 bg-slate-900 p-6">
+        <div className="mt-8 rounded-xl border border-slate-800 bg-white p-6">
           <h2 className="text-xl font-semibold">Inventory Settings</h2>
 
           <div className="mt-6">
-            <label className="mb-2 block text-sm text-slate-300">
+            <label className="mb-2 block text-sm text-black">
               Default Low Stock Threshold
             </label>
 
@@ -92,10 +92,10 @@ export default function SettingsPage() {
               min="0"
               value={threshold}
               onChange={(e) => setThreshold(e.target.value)}
-              className="w-full rounded-lg border border-slate-700 bg-slate-950 px-4 py-3 text-white outline-none focus:border-blue-500"
+              className="w-full rounded-lg border border-slate-700 bg-white px-4 py-3 text-black outline-none focus:border-blue-500"
             />
 
-            <p className="mt-2 text-sm text-slate-400">
+            <p className="mt-2 text-sm text-black">
               Products with stock at or below this quantity will be marked as
               low stock, unless they have their own threshold.
             </p>
@@ -104,13 +104,13 @@ export default function SettingsPage() {
           <button
             onClick={handleSave}
             disabled={loading || saving || threshold === ""}
-            className="mt-6 rounded-lg bg-blue-600 px-6 py-3 font-medium hover:bg-blue-700 disabled:opacity-50"
+            className="mt-6 rounded-lg border border-black bg-white px-6 py-3 font-medium enabled:hover:bg-black enabled:hover:text-white disabled:opacity-50"
           >
             {saving ? "Saving..." : "Save Changes"}
           </button>
 
           {message && (
-            <p className="mt-4 text-sm text-slate-300">{message}</p>
+            <p className="mt-4 text-sm text-black">{message}</p>
           )}
         </div>
       </div>

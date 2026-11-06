@@ -7,7 +7,6 @@ const router = Router();
 
 router.use(authenticateToken);
 
-// Get settings
 router.get("/", async (req, res) => {
   try {
     const settings = await prisma.settings.upsert({
@@ -26,7 +25,6 @@ router.get("/", async (req, res) => {
   }
 });
 
-// Update default low-stock threshold
 router.put("/", async (req, res) => {
   const schema = z.object({
     defaultLowStockThreshold: z.number().int().min(0),

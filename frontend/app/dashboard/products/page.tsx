@@ -83,24 +83,24 @@ export default function AddProduct() {
   }
 
   const inputClass =
-    "w-full rounded-lg border border-slate-700 bg-slate-900 px-4 py-3 text-white placeholder:text-slate-500 outline-none transition focus:border-blue-500";
+    "w-full rounded-lg border border-slate-700 bg-white px-4 py-3 text-black placeholder:text-slate-500 outline-none transition focus:border-blue-500";
 
   return (
-    <main className="min-h-screen bg-slate-1000 p-6 text-white sm:p-8">
+    <main className="min-h-screen bg-white p-6 text-black sm:p-8">
       <div className="mx-auto max-w-3xl">
         <div className="mb-8">
           <h1 className="text-3xl font-bold">Add Product</h1>
-          <p className="mt-2 text-slate-400">
+          <p className="mt-2 text-black">
             Add a new product to your inventory.
           </p>
         </div>
 
         <form
           onSubmit={handleSubmit}
-          className="space-y-6 rounded-2xl border border-slate-800 bg-gray-800 p-6 shadow-xl sm:p-8"
+          className="space-y-6 rounded-2xl border border-slate-800 bg-white p-6 shadow-xl sm:p-8"
         >
           <div>
-            <label className="mb-2 block text-sm font-medium text-slate-300">
+            <label className="mb-2 block text-sm font-medium text-black">
               Product Name
             </label>
             <input
@@ -114,7 +114,7 @@ export default function AddProduct() {
           </div>
 
           <div>
-            <label className="mb-2 block text-sm font-medium text-slate-300">
+            <label className="mb-2 block text-sm font-medium text-black">
               SKU
             </label>
             <input
@@ -128,7 +128,7 @@ export default function AddProduct() {
           </div>
 
           <div>
-            <label className="mb-2 block text-sm font-medium text-slate-300">
+            <label className="mb-2 block text-sm font-medium text-black">
               Description
             </label>
             <textarea
@@ -143,7 +143,7 @@ export default function AddProduct() {
 
           <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
             <div>
-              <label className="mb-2 block text-sm font-medium text-slate-300">
+              <label className="mb-2 block text-sm font-medium text-black">
                 Quantity
               </label>
               <input
@@ -159,7 +159,7 @@ export default function AddProduct() {
             </div>
 
             <div>
-              <label className="mb-2 block text-sm font-medium text-slate-300">
+              <label className="mb-2 block text-sm font-medium text-black">
                 Low Stock Threshold
               </label>
               <input
@@ -176,7 +176,7 @@ export default function AddProduct() {
 
           <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
             <div>
-              <label className="mb-2 block text-sm font-medium text-slate-300">
+              <label className="mb-2 block text-sm font-medium text-black">
                 Cost Price
               </label>
               <input
@@ -192,7 +192,7 @@ export default function AddProduct() {
             </div>
 
             <div>
-              <label className="mb-2 block text-sm font-medium text-slate-300">
+              <label className="mb-2 block text-sm font-medium text-black">
                 Selling Price
               </label>
               <input
@@ -209,14 +209,14 @@ export default function AddProduct() {
           </div>
 
           {error && (
-            <p className="text-sm text-red-400">{error}</p>
+            <p className="text-sm text-black">{error}</p>
           )}
 
           <div className="flex justify-end border-t border-slate-700 pt-6">
             <button
               type="submit"
               disabled={loading}
-              className="w-full rounded-lg bg-blue-600 px-8 py-3 font-semibold text-white transition hover:bg-blue-500 disabled:opacity-50 sm:w-auto"
+              className="w-full rounded-lg border border-black bg-white px-8 py-3 font-semibold text-black transition enabled:hover:bg-black enabled:hover:text-white disabled:opacity-50 sm:w-auto"
             >
               {loading ? "Saving..." : "Save Product"}
             </button>

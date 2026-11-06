@@ -7,8 +7,6 @@ if (!process.env.DATABASE_URL) {
   throw new Error("DATABASE_URL is not set. Add it to backend/.env.");
 }
 
-// Supabase's CA is not in Node's trust store, so it must be supplied to verify
-// the server certificate. Download it from the Supabase dashboard.
 const caPath = new URL("../certs/supabase-ca.crt", import.meta.url);
 
 if (!existsSync(caPath)) {
